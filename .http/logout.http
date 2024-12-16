@@ -1,0 +1,2 @@
+GET http://localhost:3000/auth/logout
+Cookie: session=N2VhMmEzZjgtODA0YS00MDQ0LWFkY2UtMDY1ODFiODBjNzdlMjAyNC0xMi0xNiAyMDo1MTozOC4xNjA2MjQwMzkgKzAwMDAgVVRDIG09KzM5Ljg5MzY1NTE3OA==bWNYT0doVTg=; HttpOnly

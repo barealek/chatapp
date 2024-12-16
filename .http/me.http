@@ -1,0 +1,2 @@
+GET http://localhost:3000/api/session
+Cookie: session=OWNiZWUzMDQtOTBjMC00NzQ1LThhMDgtYTZmOTA3ZGJkNTBlMjAyNC0xMi0xNiAyMToxMzoyMC4xMTU5ODY4MzUgKzAwMDAgVVRDIG09KzIzLjY5NjYyODY0Nw==cmFjVVFyNkw=; HttpOnly
