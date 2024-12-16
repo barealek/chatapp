@@ -63,6 +63,8 @@ passwordhandle:
 	http.SetCookie(w, &http.Cookie{
 		Name:     "session",
 		Value:    sess.ID,
+		Path:     "/api",
+		SameSite: http.SameSiteStrictMode,
 		HttpOnly: true,
 	})
 
@@ -112,6 +114,8 @@ func (a *Api) handlerRegisterUser(w http.ResponseWriter, r *http.Request) {
 
 		http.SetCookie(w, &http.Cookie{
 			Name:     "session",
+			SameSite: http.SameSiteStrictMode,
+			Path:     "/api",
 			Value:    sess.ID,
 			HttpOnly: true,
 		})
@@ -158,6 +162,8 @@ func (a *Api) handlerLogout(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "session",
 		Value:    "/",
+		Path:     "/api",
+		SameSite: http.SameSiteStrictMode,
 		Expires:  time.Unix(0, 0),
 		HttpOnly: true,
 	})

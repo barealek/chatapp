@@ -1,3 +1,5 @@
+import containerQueries from "@tailwindcss/container-queries";
+import typography from "@tailwindcss/typography";
 import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
@@ -8,5 +10,5 @@ export default {
     extend: {}
   },
 
-  plugins: [forms]
+  plugins: [forms, typography, containerQueries]
 };

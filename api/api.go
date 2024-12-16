@@ -35,6 +35,7 @@ func (a *Api) RegisterRoutes() http.Handler {
 
 	messages := m.PathPrefix("/messages").Subrouter()
 	messages.Use(middleware.AuthMiddleware(a.db))
+	messages.HandleFunc("", a.handlerGetMessages).Methods("GET")
 	messages.HandleFunc("", a.handlerSendMessage).Methods("POST")
 
 	return m

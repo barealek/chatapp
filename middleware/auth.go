@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -15,6 +16,7 @@ func AuthMiddleware(db database.Database) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			c, err := r.Cookie("session")
+			fmt.Printf("r.Header: %v\n", r.Header)
 			if err != nil {
 				if err == http.ErrNoCookie {
 					http.Error(w, "not logged in", http.StatusUnauthorized)
@@ -42,6 +44,7 @@ func AuthMiddleware(db database.Database) func(http.Handler) http.Handler {
 				// Expire session cookie
 				http.SetCookie(w, &http.Cookie{
 					Name:     "session",
+					Domain:   "localhost",
 					Value:    "/",
 					Expires:  time.Unix(0, 0),
 					HttpOnly: true,

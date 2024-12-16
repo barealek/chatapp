@@ -117,3 +117,22 @@ func (m *mongodb) GetUserFromName(ctx context.Context, name string) (types.User,
 func (m *mongodb) getDatabase() *mongo.Database {
 	return m.cl.Database(m.dbname)
 }
+
+func (m *mongodb) GetLatestMessages(ctx context.Context, n int) ([]types.Message, error) {
+	db := m.getDatabase()
+	coll := db.Collection("messages")
+
+	opts := options.Find().SetSort(bson.D{{Key: "timestamp", Value: -1}}).SetLimit(int64(n))
+	cursor, err := coll.Find(ctx, bson.M{}, opts)
+	if err != nil {
+		return nil, err
+	}
+
+	var messages []types.Message
+	err = cursor.All(ctx, &messages)
+	if err != nil {
+		return nil, err
+	}
+
+	return messages, nil
+}

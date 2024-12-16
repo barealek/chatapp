@@ -17,4 +17,5 @@ type Database interface {
 
 	GetUserFromID(ctx context.Context, id string) (types.User, error)
 	GetUserFromName(ctx context.Context, name string) (types.User, error)
+	GetLatestMessages(ctx context.Context, n int) ([]types.Message, error)
 }
