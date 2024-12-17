@@ -1,6 +1,6 @@
 services:
   chatapp:
-    image: ghcr.io/barealek/chatapp:latest
+    image: ghcr.io/barealek/chatapp:0.2
     env_file:
       - .env
     depends_on:
