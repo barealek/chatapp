@@ -21,8 +21,18 @@
    })
 
    let sendContent
+   let chatElem
    function sendMessage(e) {
       if (e.key=="Enter") {
+         messages = [...messages, {
+            author_id: user.id,
+            content: sendContent,
+            author_name: user.name,
+            likes: 0,
+            sent_at: Date.now(),
+            sending: true
+         }]
+         chatElem.scrollTop = chatElem.scrollHeight*2
          fetch(`/api/messages`, {
             method: "POST",
             body: JSON.stringify({
@@ -30,10 +40,8 @@
             })
          }).then(async (res)=>{
             if (res.status==200){
-               res = await res.json()
-               let msg = res.message
-               messages = [...messages, msg]
                sendContent = ""
+               chatElem.scrollTop = chatElem.scrollHeight*2
             }
          })
       }
@@ -43,10 +51,10 @@
 <div class="min-h-[2dvh]"></div>
 <section class="flex flex-col items-center justify-center w-screen min-h-[95dvh] bg-gray-100 text-gray-800">
 <div class="flex flex-col flex-grow w-full max-w-xl overflow-hidden bg-white rounded-lg shadow-xl">
-		<div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
+		<div bind:this={chatElem} class="flex flex-col flex-grow h-0 p-4 overflow-auto">
 
          {#each messages as msg}
-            <Message messageauthor={msg.author_id} selfid={user?.id} time={msg.sent_at} content={msg.content} messageauthorname={msg.author_name}/>
+            <Message messageauthor={msg.author_id} selfid={user?.id} time={msg.sent_at} content={msg.content} messageauthorname={msg.author_name} sending={msg.sending}/>
          {/each}
 
 		</div>

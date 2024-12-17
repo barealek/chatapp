@@ -1,2 +1,2 @@
 GET http://localhost:5173/api/session
-Cookie: session=OTFiMmViZWEtNzhmMC00YmYyLWI0ZDEtZjg2NGQyMjhiYjk2MjAyNC0xMi0xNiAyMjoyNToyOC4yNDAyMTc4MTQgKzAwMDAgVVRDIG09KzU0My4wNzIyMzI2ODk=MmNJNG42c00=; Domain=localhost; HttpOnly
+Cookie: session=ZTVkN2YyOGYtNjgzNC00MDdmLThjODMtMDFjYTZlYjkxMWZkMjAyNC0xMi0xNyAxMzo0NToyNy40MzU4ODE5MzggKzAwMDAgVVRDIG09KzIxLjI4NzI3NjYwMQ==MG1qVXZWZDI=; Domain=localhost; HttpOnly

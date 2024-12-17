@@ -1,5 +1,5 @@
 POST http://localhost:3000/api/messages
-Cookie: session=Yjc1ZTgwN2ItNjE5My00YTgwLTg4NWEtMTM0ODRkZDg0YzgwMjAyNC0xMi0xNiAyMzowNjozOS4wNTYwMzE1NDggKzAwMDAgVVRDIG09KzQyMi44NjU0MDI2NTQ=ZHZuZWFHdFU=; Domain=localhost; HttpOnly
+Cookie: session=ZTVkN2YyOGYtNjgzNC00MDdmLThjODMtMDFjYTZlYjkxMWZkMjAyNC0xMi0xNyAxMzo0NToyNy40MzU4ODE5MzggKzAwMDAgVVRDIG09KzIxLjI4NzI3NjYwMQ==MG1qVXZWZDI=; Domain=localhost; HttpOnly
 
 {
    "msg": "Meget godt tak"
