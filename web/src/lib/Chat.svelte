@@ -10,6 +10,7 @@
          fetch(`/api/messages`).then(async (res)=>{
             if (res.status==200){
                messages = await res.json()
+               // sort messages after the
             }
          })
       }, 500)
@@ -39,7 +40,6 @@
    }
 </script>
 
-{messages}
 <div class="min-h-[2dvh]"></div>
 <section class="flex flex-col items-center justify-center w-screen min-h-[95dvh] bg-gray-100 text-gray-800">
 <div class="flex flex-col flex-grow w-full max-w-xl overflow-hidden bg-white rounded-lg shadow-xl">

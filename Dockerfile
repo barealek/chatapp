@@ -9,8 +9,18 @@ COPY . .
 RUN go build -o bin/server cmd/server/main.go
 
 
+FROM node:alpine AS node
+WORKDIR /web
+COPY web/package*.json .
+RUN npm i
+COPY web .
+RUN npm run build
+
 FROM alpine:latest
 
-COPY --from=build /app/bin /bin
+WORKDIR /app
+COPY --from=build /app/bin /app/bin
+COPY --from=node /web/build /app/dist
 
-CMD [ "/bin/server" ]
+EXPOSE 3000
+CMD [ "bin/server" ]
