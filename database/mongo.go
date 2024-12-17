@@ -122,7 +122,7 @@ func (m *mongodb) GetLatestMessages(ctx context.Context, n int) ([]types.Message
 	db := m.getDatabase()
 	coll := db.Collection("messages")
 
-	opts := options.Find().SetSort(bson.D{{Key: "timestamp", Value: -1}}).SetLimit(int64(n))
+	opts := options.Find().SetSort(bson.D{{Key: "sent_at", Value: -1}}).SetLimit(int64(n))
 	cursor, err := coll.Find(ctx, bson.M{}, opts)
 	if err != nil {
 		return nil, err
